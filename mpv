@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+/usr/bin/mpv "$@" &
+APP_PID=$!
+echo PID = $APP_PID
+APP_WID=$(xdotool search --sync --pid $APP_PID)
+echo WID = $APP_WID
+xdotool windowstate --add STICKY "$APP_WID"
